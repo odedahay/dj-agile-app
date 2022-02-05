@@ -1,4 +1,131 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <h1>CONTACT US</h1>
+   <!-- Hero Banner -->
+   <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg'%}') rgba(0, 0, 0, 0.3);;">
+    <div class="container inner-banner">
+      <h1 class="inner-banner__title">Contact</h1>  
+    </div>
+      <!-- end container --> 
+    </header>
+    <div class="waves-grp">
+      <svg class="waves-banner2 margin-top-50t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+        <g class="waves-banner2__parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+        </g>
+      </svg>
+      <svg class="waves-banner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+        <g class="waves-banner__parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+        </g>
+      </svg>
+    </div>
+
+  <!-- marketing -->
+  <section class="content-section content-section__no-top-padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="section-title">
+              <figure>
+                <img src="{% static 'images/logo-shape.png'%}" class="shape-news-logo"/>
+              </figure>
+              <h2>We’d love to hear from you</h2>
+                <p>Please send your enquiry to <u>agile@agilecrew.com</u>, or contact your local<br> 
+    specialists using the contact details below.</p>
+            </div>
+            <!-- end section-title --> 
+          </div>
+          <!-- end col-12 -->
+            <div class="col-lg-8 col-md-8">
+                <div class="contact-box">
+                <h5>AGILE Maritime Resources, Inc. </h5>
+                    <address>
+                      3906 Woodland Park Centre<br>
+                      Hen. Macabulos St. Bangkal, Makati City, 
+                      1233, Philippines
+                    </address>
+                
+                    <div class="row mb-4">
+                      <div class="col-sm-6">
+                        <h6 class="widget-title">Tel Nos.</h6>
+                        <p class="contact-numbers">
+                          <a href="tel:+63277381606" title="+63 2 7738 1606">+63 2 7738 1606 </a><br>
+                          <a href="tel:+6377381607" title="+63  7738 1607">+63  7738 1607 </a><br>
+                          <a href="tel:+6388890251" title="+63 8889 0251">+63 8889 0251 </a><br>
+                        </p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h6 class="widget-sub-title">Email Address</h6>
+                        <p class="contact-emails">
+                          <a href="#">agile@agilecrew.com </a> <br>
+                          <a href="#">arecruitment@agilecrew.com</a> <br>
+                          <a href="#">operations@agilecrew.com</a> 
+                        </p>
+                      </div>
+                    </div>
+                   
+                    <a href="https://goo.gl/maps/KWZUkhWFDbnZjowv8" data-fancybox="" data-width="640" data-height="360" class="custom-button" target="_blank">FIND US ON MAP</a>
+                </div>
+                <!-- end contact-box -->
+            </div>
+            <!-- end col-5 -->
+            
+            <!-- end col-5 -->
+        </div>
+        <!-- end row --> 
+      </div>
+      <!-- end container --> 
+    </section>
+    <section class="content-section no-bottom-spacing" data-background="#f9f7ef" style="background: rgb(249, 247, 239);">
+      <div class="container">
+        <div class="row">
+             <div class="col-12">
+            <div class="section-title text-left">
+                <h6>Have Any Question?</h6>
+              <h2>If you would like to know more <br>
+              about our services, please contact <br>
+              us using this form
+              </h2>
+            </div>
+            <!-- end section-title --> 
+          </div>
+          <!-- end col-12 -->
+            
+          <div class="col-12">
+              <div class="contact-form">
+                  <div class="row inner">
+                      <div class="form-group col-lg-4">
+                          <input type="text" placeholder="Fullname">
+                      </div> 
+                      <!-- end form-group -->
+                      <div class="form-group col-lg-4 col-md-6">
+                          <input type="text" placeholder="Email Address">
+                      </div> 
+                      <!-- end form-group -->
+                      <div class="form-group col-lg-4 col-md-6">
+                          <input type="text" placeholder="Phone No">
+                      </div> 
+                      <!-- end form-group -->
+                      <div class="form-group col-12">
+                        <textarea placeholder="Message"></textarea>
+                      </div> 
+                      <!-- end form-group -->
+                      <div class="form-group col-12">
+                        <input type="submit" value="SEND MESSAGE">
+                      </div> 
+                      <!-- end form-group -->
+                  </div>
+                  <!-- end row inner -->
+              </div>
+              <!-- end contact-form -->
+          </div>
+          <!-- end col-12 -->
+        </div>
+        <!-- end row --> 
+      </div>
+      <!-- end container --> 
+    </section>
 {% endblock %}

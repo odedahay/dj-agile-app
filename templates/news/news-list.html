@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Hero Banner -->
+<header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);;">
+  <div class="container">
+    <h1 class="inner-banner__title">News</h1>
+    <p>Take the complexity out of customs Freight Solutions<br> with customs brokerage services</p>
+  </div>
+  <!-- end container --> 
+</header>
+<div class="waves-grp">
+    <svg class="waves-banner2 margin-top-50t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+      <g class="waves-banner2__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+      </g>
+    </svg>
+    <svg class="waves-banner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+      <g class="waves-banner__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- marketing -->
+  <section class="content-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="news-box">
+            <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news01.jpeg' %}')">
+              <!-- <img src="{% static 'images/news01.jpeg" alt="Image"> -->
+            </figure>
+            <div class="content"> <small>31 November, 2020</small>
+              <h3><a href="news-single.html">Expression alteration entreaties mrs can terminated estimating. </a></h3>
+              <div class="author">
+                <!-- <img src="{% static 'images/avatar.jpeg' %}" alt="Image"> -->
+                <span>by <b>Quesco LLC</b></span>
+              </div>
+              <!-- end author --> 
+            </div>
+            <!-- end content -->
+          </div>
+          <div class="news-box">
+            <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news02.jpeg' %}')"></figure>
+                <div class="content"> <small>31 November, 2020</small>
+                  <h3><a href="news-single.html">Subject but why ten earnest husband imagine sixteen brandon.  </a></h3>
+                  <div class="author">
+                    <!-- <img src="{% static 'images/avatar.jpeg" alt="Image">  -->
+                    <span>by <b>Quesco LLC</b></span>
+                  </div>
+                  <!-- end author --> 
+            </div>
+            <!-- end content -->
+          </div>
+          <div class="news-box">
+            <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news03.jpeg')"></figure>
+              <div class="content"> <small>31 November, 2020</small>
+                <h3><a href="news-single.html">Sentiments way understood end partiality and his.</a></h3>
+                <div class="author">
+                  <!-- <img src="{% static 'images/avatar.jpeg" alt="Image"> -->
+                  <span>by <b>Quesco LLC</b></span>
+                </div>
+                <!-- end author --> 
+            </div>
+            <!-- end content -->
+          </div>
+          <ul class="pagination">
+            <li class="page-item"> <a class="page-link" href="#">PREV</a> </li>
+            <li class="page-item"> <a class="page-link" href="#">NEXT</a> </li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <aside class="sidebar">
+            <div class="widget">
+              <h6 class="widget-title">SEARCH</h6>
+              <form>
+                <input type="search" placeholder="Type here to search">
+                <input type="submit" value="Search">
+              </form>
+              </div>
+              <!-- end widget -->
+              <div class="widget">
+              <h6 class="widget-title">CATEGORIES</h6>
+              <ul class="categories">
+                  <li><a href="#">Food &amp; Beverage</a></li>
+                  <li><a href="#">Global 4PL</a></li>
+                  <li><a href="#">Consumer Packageds</a></li>
+                  <li><a href="#">Transportation</a></li>
+                  <li><a href="#">Retails</a></li>
+                  <li><a href="#">Shipping</a></li>
+                  <li><a href="#">Commerce Cargo</a></li>
+                </ul>
+              </div>
+              <!-- end widget -->
+              
+            </aside>
+            
+        </div>
+    </div>
+    </div>
+      
+  </section>
+{% endblock %}

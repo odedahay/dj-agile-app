@@ -1,4 +1,187 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <h1>HOME</h1>
+<div class="large-hero">
+    <picture class="large-hero__image">
+      <source srcset="{% static 'images/banners/hero--large.jpg' %} 1920w" media="(min-width:1380px)" >
+      <source srcset="{% static 'images/banners/hero--medium.jpg' %} 1380w" media="(min-width:990px)" >
+      <source srcset="{% static 'images/banners/hero--small.jpg' %} 990w" media="(min-width:640px)" >
+      <img srcset="{% static 'images/banners/hero--smaller.jpg' %} 640w" alt="Costal view of ocean and mountains" >
+    </picture>
+    <div class="large-hero__text-content">
+      <div class="container">
+        <h1 class="large-hero__title">Riding the Waves of Change of Eagle's Wings</h1>
+        <h2 class="large-hero__subtitle">For over 26 Years</h2>
+        <p><a href="#" class="btn btn-lg btn-primary mt-4 text-uppercase">More About AGILE</a></p>
+      </div>
+    </div>
+    
+  </div>
+  <div class="waves-grp">
+    <svg class="waves-banner2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+      <g class="waves-banner2__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+      </g>
+    </svg>
+    <svg class="waves-banner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+      <g class="waves-banner__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+      </g>
+    </svg>
+  </div>
+
+   <!-- marketing -->
+   <main class="container content-section-50t">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="card-border-yelow marketing-card shadow-sm">
+                <div class="row">
+                  <div class="inner-card">
+                      <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/ship-manning.svg' %}" class="home-featured-icon m"/>
+                      </div>
+                      <div class="col-md-8">
+                          <h2 class="pt-3">Ship manning</h2>
+                          <p>Our most valued asset is our high caliber officers and skilled ratings. Maintaining 90% retention for the past years is indeed a proud achievement given the stiff market share competition.</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="card-border-crew marketing-card shadow-sm">
+                <div class="row">
+                  <div class="inner-card">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                      <img src="{% static 'images/crew-management.svg' %}" class="home-featured-icon"/>
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="pt-2">Crew management</h2>
+                        <p>With AGILE, you have a reliable supplier of Filipino seafarers. We can tailor-fit systems and processes to be in-sync with our clients ensuring an easy experience on employing Filipino officers and ratings.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<section class="content-section bg-light">
+  <div class="container">
+    <div class="section-title">
+      <h2>Go ride the waves of change with <strong class="font-blue">Team AGILE!</strong></h2>
+      <p class="text-center"><a href="#" class="btn btn-lg btn-primary mt-4 text-uppercase">Join Now</a></p>
+    </div>
+    
+    <div class="wrapper wrapper__medium wrapper__b-margin">
+       <img sizes="(min-width: 970px) 976px, 100vw" srcset="{% static 'images/banners/join-now-small.jpg' %} 565w, {% static 'images/banners/join-now-large.jpg'%} 976w, {% static 'images/banners/join-now-hi-dpi.jpg'%} 1952w" alt="Join Now!">
+    </div>
+  </div>
+  
+</section>
+
+<section class="content-section page-section__testimonials">
+  <div class="container wrapper__no-padding-until-large">
+    <div class="col-md-12">
+      <div class="section-title">
+        <h2><img src="{% static 'images/icons/comment.svg' %}" class="section-title__icon"> Testimonials</h2>
+        <p>What our Crew are saying? <a href="testimonial.html">read more</a></p>
+      </div>
+      <!-- end section-title --> 
+    </div>
+    
+    <div class="row row__gutters row__equal-height-at-large row__gutters-small row__t-padding generic-content-container">
+      <div class="col-md-4">
+        <div class="testimonial">
+          <div class="testimonial__photo">
+            <img sizes="160px" srcset="{% static 'images/team-member01.jpeg'%} 160w, {% static 'images/team-member01.jpeg'%}  320w" alt="ALEXANDER RICHIEZ">
+          </div>
+          <h3 class="testimonial__title">ALEXANDER RICHIEZ</h3>
+          <h3 class="testimonial__subtitle">Chief Operations Officer</h3>
+          <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&rdquo;</p>
+          <p><a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial">
+          <div class="testimonial__photo">
+            <img sizes="160px" srcset="{% static 'images/team-member02.jpeg' %} 160w, {% static 'images/team-member02.jpeg 320w'%}" alt="John Smith">
+          </div>
+          <h3 class="testimonial__title">RICHARD HILL</h3>
+          <h3 class="testimonial__subtitle">
+            Head of Administration</h3>
+          <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, consectetur.&rdquo;</p>
+          <p><a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial testimonial__last">
+          <div class="testimonial__photo">
+            <img sizes="160w" srcset="{% static 'images/team-member03.jpeg' %} 160w, {% static 'images/team-member03.jpeg'%} 320w">
+          </div>
+          <h3 class="testimonial__title">DYLAN TAYLOR</h3>
+          <h3 class="testimonial__subtitle">
+            Financial Manager</h3>
+          <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animt.&rdquo;</p>
+          <p><a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</section>
+
+<!-- News Section -->
+<section class="content-section content-section__no-top-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-title">
+            <figure>
+                <img src="{% static 'images/logo-shape.png' %}" class="shape-news-logo"/>
+            </figure>
+            <h2>News and Events</h2>
+            <!-- <p>advice and best practice from our own team</p> -->
+          </div>
+          <!-- end section-title --> 
+        </div>
+        <!-- end col-12 -->
+        <div class="col-md-6">
+          <div class="recent-news">
+            <figure><img src="{% static 'images/recent-news01.jpeg'%}" alt="Image">
+                <a href="news-single.html"><i class="bi-arrow-right"></i></a> 
+            </figure>
+            <div class="content">
+              <h3><a href="news-single.html">Carriers feel affect of COVID-19</a></h3>
+              <small>May 26th, 2020</small>
+              <p>As the global pandemic continues to spread in certain parts 
+                of the world, Europe as a whole is pushing to get back</p>
+              </div>
+            <!-- end content --> 
+          </div>
+          <!-- end recent-news --> 
+        </div>
+        <!-- end col-6 -->
+        <div class="col-md-6">
+          <div class="recent-news">
+            <figure><img src="{% static 'images/recent-news02.jpeg' %}" alt="Image"> 
+                <a href="news-single.html"><i class="bi-arrow-right"></i></a> 
+            </figure>
+            <div class="content">
+              <h3><a href="news-single.html">AEO – What are the advantages</a></h3>
+              <small>June 2nd, 2020</small>
+              <p>Following the global pandemic and as businesses look to recovery a review by many into the</p>
+              <!-- <span><i class="lni lni-comments-alt"></i> 0 Comments</span>  -->
+            </div>
+            <!-- end content --> 
+          </div>
+          <!-- end recent-news --> 
+        </div>
+        <!-- end col-6 --> 
+      </div>
+      <!-- end row --> 
+    </div>
+    <!-- end container --> 
+  </section>
 {% endblock %}

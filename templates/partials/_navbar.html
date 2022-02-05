@@ -1,0 +1,36 @@
+{% load static %}
+<header class="sec-navigation">
+    <nav class="navbar-expand-lg main-navbar shadow-sm " aria-label="Main navigation">
+      <div class="container main-navbar-container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'images/agile-logo.png' %}" class="main-logo"/>
+            </a>
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+              <i class="bi bi-filter-right" id="iconMenu"></i>
+            </button>
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+              <ul class="navbar-nav navbar-nav-custom mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a {% if '/' == request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'index'%}">Home </a>
+                </li>
+                <li class="nav-item">
+                  <a {% if 'about' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'about'%}">About AGILE</a>
+                </li>
+                <li class="nav-item">
+                  <a {% if 'news' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'news'%}">News</a>
+                </li>
+                <li class="nav-item">
+                  <a {% if 'testimonials' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'testimonials' %}">Testimonial</a>
+                </li>
+               
+                <li class="nav-item">
+                  <a {% if 'contact-us' in request.path %}class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'contact-us'%}">Contact Us</a>
+                </li>
+              </ul>
+              <!-- <div class="btn-careers"><a href="job-opportunities.html">Job Opportunities</a></div> -->
+            </div>
+          </div>
+      </nav>
+  </header>
+  
+ 

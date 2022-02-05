@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Hero Banner -->
+<header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);">
+    <div class="container inner-banner">
+      <h1 class="inner-banner__title">Testimonial</h1>
+    </div>
+    <!-- end container --> 
+</header>
+<div class="waves-grp">
+  <svg class="waves-banner2 margin-top-50t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+    <g class="waves-banner2__parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+    </g>
+  </svg>
+  <svg class="waves-banner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+    <g class="waves-banner__parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+    </g>
+  </svg>
+</div>
+
+<!-- marketing -->
+
+  <section class="content-section content-section__no-top-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="section-title">
+            <figure>
+              <img src="{% static 'images/logo-shape.png' %}" class="shape-news-logo"/>
+          </figure>
+            <h2>What our Crew are saying</h2>
+            <p>Advice and best practice from our own team</p>
+          </div>
+        </div>
+        <!-- end col-12 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="team-member">
+        <div class="inner">
+            <figure> <img src="{% static 'images/team-member01.jpeg' %}" alt="Image"> </figure>
+            <h6>ALEXANDER RICHIEZ</h6>
+            <small>Chief Operations Officer</small>
+            <p>At vero eos et accusamus et 
+              iusto odio dignissimos ducimus 
+              qui blanditiis praesentium
+              <br><br>
+              <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
+            </p>
+          
+          </div>
+        <!-- end inner -->
+          </div>
+          <!-- end team-member --> 
+        </div>
+        <!-- end col-4 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="team-member">
+            <div class="inner">
+                <figure> <img src="{% static 'images/team-member02.jpeg' %}" alt="Image"> </figure>
+                <h6>RICHARD HILL</h6>
+                <small>Head of Administration</small>
+                <p>At vero eos et accusamus et 
+                  iusto odio dignissimos ducimus 
+                  qui blanditiis praesentium
+                  <br><br>
+                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
+                </p>
+                 
+              </div>
+        <!-- end inner -->
+          </div>
+          <!-- end team-member --> 
+        </div>
+        <!-- end col-4 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="team-member">
+            <div class="inner">
+                <figure> <img src="{% static 'images/team-member03.jpeg' %}" alt="Image"> </figure>
+                <h6>DYLAN TAYLOR</h6>
+                <small>Financial Manager</small>
+                <p>At vero eos et accusamus et 
+                  iusto odio dignissimos ducimus 
+                  qui blanditiis praesentium
+                  <br><br>
+                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
+                </p>
+                 
+              </div>
+             <!-- end inner -->
+          </div>
+          <!-- end team-member --> 
+        </div>
+        <!-- end col-4 --> 
+        <div class="col-lg-4 col-md-6">
+          <div class="team-member">
+            <div class="inner">
+                <figure> <img src="{% static 'images/team-member03.jpeg' %}" alt="Image"> </figure>
+                <h6>DYLAN TAYLOR</h6>
+                <small>Financial Manager</small>
+                <p>At vero eos et accusamus et 
+                  iusto odio dignissimos ducimus 
+                  qui blanditiis praesentium
+                  <br><br>
+                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
+                </p>
+              </div>
+             <!-- end inner -->
+          </div>
+          <!-- end team-member --> 
+        </div>
+        <!-- end col-4 --> 
+        <div class="col-lg-4 col-md-6">
+          <div class="team-member">
+            <div class="inner">
+                <figure> <img src="{% static 'images/team-member03.jpeg' %}" alt="Image"> </figure>
+                <h6>DYLAN TAYLOR</h6>
+                <small>Financial Manager</small>
+                <p>At vero eos et accusamus et 
+                  iusto odio dignissimos ducimus 
+                  qui blanditiis praesentium
+                  <br><br>
+                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
+                </p>
+              </div>
+             <!-- end inner -->
+          </div>
+          <!-- end team-member --> 
+        </div>
+        <!-- end col-4 --> 
+      </div>
+      <!-- end row --> 
+    </div>
+    <!-- end container --> 
+  </section>
+{% endblock %}
