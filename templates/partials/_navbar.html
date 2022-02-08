@@ -17,7 +17,7 @@
                   <a {% if 'about' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'about'%}">About AGILE</a>
                 </li>
                 <li class="nav-item">
-                  <a {% if 'news' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'news'%}">News</a>
+                  <a {% if 'news' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'news:news_list'%}">News</a>
                 </li>
                 <li class="nav-item">
                   <a {% if 'testimonials' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'testimonials' %}">Testimonial</a>

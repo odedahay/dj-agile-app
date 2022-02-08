@@ -42,8 +42,17 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'testimonials.apps.TestimonialsConfig',
     'jobs.apps.JobsConfig',
+    'ckeditor',
+    'ckeditor_uploader',
+    'django.contrib.humanize',
+    'taggit',
 
 ]
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,8 +90,11 @@ WSGI_APPLICATION = 'agile.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'agiledb',
+        "USER" : 'postgres',
+        "PASSWORD": 'P@44w0rd12!',
+        "HOST": 'localhost'
     }
 }
 
@@ -128,3 +140,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'agile/static')
 ]
+
+# Media Folder Settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

@@ -5,7 +5,7 @@
 <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);;">
   <div class="container">
     <h1 class="inner-banner__title">News</h1>
-    <p>Take the complexity out of customs Freight Solutions<br> with customs brokerage services</p>
+   
   </div>
   <!-- end container --> 
 </header>
@@ -29,69 +29,59 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <div class="news-box">
-            <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news01.jpeg' %}')">
-              <!-- <img src="{% static 'images/news01.jpeg" alt="Image"> -->
-            </figure>
-            <div class="content"> <small>31 November, 2020</small>
-              <h3><a href="news-single.html">Expression alteration entreaties mrs can terminated estimating. </a></h3>
-              <div class="author">
-                <!-- <img src="{% static 'images/avatar.jpeg' %}" alt="Image"> -->
-                <span>by <b>Quesco LLC</b></span>
-              </div>
-              <!-- end author --> 
-            </div>
-            <!-- end content -->
-          </div>
-          <div class="news-box">
-            <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news02.jpeg' %}')"></figure>
-                <div class="content"> <small>31 November, 2020</small>
-                  <h3><a href="news-single.html">Subject but why ten earnest husband imagine sixteen brandon.  </a></h3>
-                  <div class="author">
-                    <!-- <img src="{% static 'images/avatar.jpeg" alt="Image">  -->
-                    <span>by <b>Quesco LLC</b></span>
+          {% if tag %}
+          <h2 class="inner-banner__title">Posts tagged with "<span class="inner-banner__title-tag">{{ tag.name }}</span>"</h2>
+          {% endif %}
+          {% if news_list %}
+      
+            {% for news in news_list %}
+            <div class="news-box">
+                {% if news.photo %}
+                  <figure class="thumbsnail-img" style="background-image: url('{{ news.photo.url }}')"></figure>
+                {% else %}
+                  <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news01.jpeg' %}')"></figure>
+                {% endif %}
+                <div class="content"> <small>{{news.publish | date:"M d, Y" }}</small>
+                  <h3><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h3>
+
+                  <div class="article-tags">
+                     <p>Tags: {% for tag in news.tags.all %}<a href="{% url 'news:news_list_by_tag' tag.slug %}" class="article-tags--tag-link">{{ tag.name }}</a>{% if not forloop.last %}, 
+                            {% endif %}
+                          {% endfor %}
+                      </p>
                   </div>
+                  
+                  <div class="author">
+                    <!-- <img src="{% static 'images/avatar.jpeg' %}" alt="Image"> -->
+                    <span>by <b>{{news.author}}</b></span>
+                  </div>
+                  
+                  <p>{{ news.content | safe | truncatechars:170}}</p>
                   <!-- end author --> 
-            </div>
-            <!-- end content -->
-          </div>
-          <div class="news-box">
-            <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news03.jpeg')"></figure>
-              <div class="content"> <small>31 November, 2020</small>
-                <h3><a href="news-single.html">Sentiments way understood end partiality and his.</a></h3>
-                <div class="author">
-                  <!-- <img src="{% static 'images/avatar.jpeg" alt="Image"> -->
-                  <span>by <b>Quesco LLC</b></span>
                 </div>
-                <!-- end author --> 
+                <!-- end content -->
             </div>
-            <!-- end content -->
-          </div>
-          <ul class="pagination">
-            <li class="page-item"> <a class="page-link" href="#">PREV</a> </li>
-            <li class="page-item"> <a class="page-link" href="#">NEXT</a> </li>
-          </ul>
+            
+            {% endfor %}
+          {% else %}
+            <p class="lead">No news available</p>
+          {% endif %}
+
+          {% if page %}
+            {% include 'partials/_pagination.html' with page=news_list %}
+          {% endif %}
+
         </div>
         <div class="col-lg-4">
           <aside class="sidebar">
-            <div class="widget">
-              <h6 class="widget-title">SEARCH</h6>
-              <form>
-                <input type="search" placeholder="Type here to search">
-                <input type="submit" value="Search">
-              </form>
-              </div>
               <!-- end widget -->
               <div class="widget">
-              <h6 class="widget-title">CATEGORIES</h6>
-              <ul class="categories">
-                  <li><a href="#">Food &amp; Beverage</a></li>
-                  <li><a href="#">Global 4PL</a></li>
-                  <li><a href="#">Consumer Packageds</a></li>
-                  <li><a href="#">Transportation</a></li>
-                  <li><a href="#">Retails</a></li>
-                  <li><a href="#">Shipping</a></li>
-                  <li><a href="#">Commerce Cargo</a></li>
+              <h6 class="widget-title">Sort News Articles By</h6>
+              <ul class="categories">          
+                  {% for tag in tags_list %}
+                    <li><a href="{% url 'news:news_list_by_tag' tag.slug %}" class="categories__title-tag">{{ tag.name }}</a></li>
+                  {% endfor %}
+    
                 </ul>
               </div>
               <!-- end widget -->
