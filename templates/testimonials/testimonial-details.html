@@ -31,40 +31,29 @@
             <div class="news-box testimonial">
                 
                   <div class="content"> 
-                    <small class="mb-3">31 November, 2020</small>
+                    <small class="mb-3">{{ testimonial_detail.publish|date:"M d, Y" }}</small>
                     <div class="author">
-                          <h3><img src="{% static 'images/avatar.jpeg' %}" class="testimonial--img" alt="Image">EALEXANDER RICHIEZ </h3>
+                          <h3>
+                            {% if testimonial_detail.image %}
+                              <img src="{{ testimonial_detail.image.url }}" class="testimonial--img" alt="{{testimonial_detail.name}}">
+                            {% endif %}
+                            {{testimonial_detail.name}} 
+                          </h3>
                     </div>
-                    <!-- end author --> 
-                      <p>Certain but she but shyness why cottage. Gay the put instrument sir entreaties affronting. Pretended exquisite see cordially the you. <strong>Weeks quiet</strong> do vexed or whose. Motionless if no to affronting imprudence no precaution. My indulged as disposal strongly attended. Parlors men express had private village man. Discovery moonlight recommend all one not. Indulged to answered prospect it bachelor is he bringing shutters. Pronounce forfeited mr direction oh he dashwoods ye unwilling. </p>
-                      <p>Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. <u>Quiet ought</u> match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. </p>
-                      <p>Believing neglected so so allowance existence departure in. In design active temper be uneasy. Thirty for remove plenty regard you summer though. He preference connection astonished on of ye. Partiality on or continuing in particular principles as. Do believing oh disposing to supported allowance we. </p>
-                      <ul>
-                      <li>Turned it up should no valley cousin he. </li>
-                            <li>Speaking numerous ask did horrible packages set. </li>
-                            <li>Ashamed herself has distant can studied mrs. </li>
-                            <li>Led therefore its middleton perpetual fulfilled provision frankness. </li>
-                            <li>Small he drawn after among every three no. </li>
-                            <li>All having but you edward genius though remark one. </li>
-                      </ul>
-                      <p>Ask especially collecting terminated may son expression. Extremely eagerness principle estimable own was man. Men received far his <strong>dashwood subjects</strong> new. My sufficient surrounded an companions dispatched in on. Connection too unaffected expression led son possession. New smiling friends and her another. Leaf she does none love high yet. Snug love will up bore as be. Pursuit man son musical general pointed. It surprise informed mr advanced do outweigh. </p>
-                      </div>
+                      {{ testimonial_detail.content | safe }}
+                    </div>
                     <!-- end content -->
                 </div>
-            <!-- <ul class="pagination">
-              <li class="page-item"> <a class="page-link" href="#">PREV</a> </li>
-              <li class="page-item"> <a class="page-link" href="#">NEXT</a> </li>
-            </ul> -->
           </div>
           <div class="col-lg-4">
             <aside class="sidebar">
                 <!-- end widget -->
                 <div class="widget">
-                <h6 class="widget-title">RECENT POST</h6>
+                <h6 class="widget-title">Recent Testimonials</h6>
                 <ul class="categories">
-                    <li><a href="#">ALEXANDER RICHIEZ</a></li>
-                    <li><a href="#">RICHARD HILL</a></li>
-                    <li><a href="#">DYLAN TAYLOR</a></li>
+                  {% for testimonial in testimonials_list %}
+                    <li><a href="{{ testimonial.get_absolute_url }}">{{ testimonial.name }}</a></li>
+                  {% endfor %}
                   </ul>
                 </div>
                 <!-- end widget -->

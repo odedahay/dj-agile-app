@@ -8,12 +8,8 @@ from django.db.models import Count
 def news_list(request, tag_slug=None):
 
     object_list = News.objects.all().filter(status='published')
-    # news_tags_ids = object_list.tags.values_list('id', flat=True)
     tags_list = News.tags.all()
-    #tags_list = tags_list.annotate(same_tags=Count('tags'))
 
-    
-    
     tag = None
 
     if tag_slug:

@@ -4,7 +4,7 @@
 <!-- Hero Banner -->
 <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);">
     <div class="container inner-banner">
-      <h1 class="inner-banner__title">Testimonial</h1>
+      <h1 class="inner-banner__title">Testimonials</h1>
     </div>
     <!-- end container --> 
 </header>
@@ -33,105 +33,46 @@
             <figure>
               <img src="{% static 'images/logo-shape.png' %}" class="shape-news-logo"/>
           </figure>
-            <h2>What our Crew are saying</h2>
+            <h2>What They Say About AGILE</h2>
             <p>Advice and best practice from our own team</p>
           </div>
         </div>
         <!-- end col-12 -->
+        {% for testimonial in testimonials_list %}
         <div class="col-lg-4 col-md-6">
           <div class="team-member">
-        <div class="inner">
-            <figure> <img src="{% static 'images/team-member01.jpeg' %}" alt="Image"> </figure>
-            <h6>ALEXANDER RICHIEZ</h6>
-            <small>Chief Operations Officer</small>
-            <p>At vero eos et accusamus et 
-              iusto odio dignissimos ducimus 
-              qui blanditiis praesentium
-              <br><br>
-              <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
-            </p>
-          
-          </div>
-        <!-- end inner -->
+            <div class="inner">
+              <figure> 
+                {% if testimonial.image %}
+                  <img src="{{ testimonial.image.url }}" alt="{{testimonial.name}}"> 
+                {% else %}
+                  <img src="{% static 'images/team-member01.jpeg' %}" alt="Image"> 
+                {% endif%}
+              </figure>
+              <h6>{{ testimonial.name }}</h6>
+              <small>{{ testimonial.designation }}</small>
+              <div>
+               {{ testimonial.content | safe | truncatewords:30 | linebreaks }}
+                <br>
+                <p class="text-center">
+                  <a href="{{ testimonial.get_absolute_url }}" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a></p>
+              </div>
+            </div>
+            <!-- end inner -->
           </div>
           <!-- end team-member --> 
         </div>
+        {% endfor %}
         <!-- end col-4 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="team-member">
-            <div class="inner">
-                <figure> <img src="{% static 'images/team-member02.jpeg' %}" alt="Image"> </figure>
-                <h6>RICHARD HILL</h6>
-                <small>Head of Administration</small>
-                <p>At vero eos et accusamus et 
-                  iusto odio dignissimos ducimus 
-                  qui blanditiis praesentium
-                  <br><br>
-                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
-                </p>
-                 
-              </div>
-        <!-- end inner -->
-          </div>
-          <!-- end team-member --> 
-        </div>
-        <!-- end col-4 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="team-member">
-            <div class="inner">
-                <figure> <img src="{% static 'images/team-member03.jpeg' %}" alt="Image"> </figure>
-                <h6>DYLAN TAYLOR</h6>
-                <small>Financial Manager</small>
-                <p>At vero eos et accusamus et 
-                  iusto odio dignissimos ducimus 
-                  qui blanditiis praesentium
-                  <br><br>
-                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
-                </p>
-                 
-              </div>
-             <!-- end inner -->
-          </div>
-          <!-- end team-member --> 
-        </div>
-        <!-- end col-4 --> 
-        <div class="col-lg-4 col-md-6">
-          <div class="team-member">
-            <div class="inner">
-                <figure> <img src="{% static 'images/team-member03.jpeg' %}" alt="Image"> </figure>
-                <h6>DYLAN TAYLOR</h6>
-                <small>Financial Manager</small>
-                <p>At vero eos et accusamus et 
-                  iusto odio dignissimos ducimus 
-                  qui blanditiis praesentium
-                  <br><br>
-                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
-                </p>
-              </div>
-             <!-- end inner -->
-          </div>
-          <!-- end team-member --> 
-        </div>
-        <!-- end col-4 --> 
-        <div class="col-lg-4 col-md-6">
-          <div class="team-member">
-            <div class="inner">
-                <figure> <img src="{% static 'images/team-member03.jpeg' %}" alt="Image"> </figure>
-                <h6>DYLAN TAYLOR</h6>
-                <small>Financial Manager</small>
-                <p>At vero eos et accusamus et 
-                  iusto odio dignissimos ducimus 
-                  qui blanditiis praesentium
-                  <br><br>
-                  <a href="testimonial-single.html" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a>
-                </p>
-              </div>
-             <!-- end inner -->
-          </div>
-          <!-- end team-member --> 
-        </div>
-        <!-- end col-4 --> 
+        
       </div>
+      {% if page %}
+      <div class="row">
+        <div class="col-md-12"> 
+          {% include 'partials/_pagination.html' with page=testimonials_pagination %}
+        </div>
+      </div>
+      {% endif %}
       <!-- end row --> 
     </div>
     <!-- end container --> 

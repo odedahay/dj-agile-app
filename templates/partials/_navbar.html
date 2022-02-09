@@ -20,7 +20,7 @@
                   <a {% if 'news' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'news:news_list'%}">News</a>
                 </li>
                 <li class="nav-item">
-                  <a {% if 'testimonials' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'testimonials' %}">Testimonial</a>
+                  <a {% if 'testimonials' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'testimonials:testimonials_list' %}">Testimonials</a>
                 </li>
                
                 <li class="nav-item">
