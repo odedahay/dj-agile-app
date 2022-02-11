@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}| Testimonials{% endblock%}
 {% block content %}
 <!-- Hero Banner -->
-<header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);">
+<header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.5);">
     <div class="container inner-banner">
-      <h1 class="inner-banner__title">Testimonials</h1>
+      <h1 class="inner-banner__title">What They Say About AGILE</h1>
     </div>
     <!-- end container --> 
 </header>
@@ -33,7 +34,7 @@
             <figure>
               <img src="{% static 'images/logo-shape.png' %}" class="shape-news-logo"/>
           </figure>
-            <h2>What They Say About AGILE</h2>
+            <!-- <h2>What They Say About AGILE</h2> -->
             <p>Advice and best practice from our own team</p>
           </div>
         </div>

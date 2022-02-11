@@ -24,10 +24,10 @@
                 </li>
                
                 <li class="nav-item">
-                  <a {% if 'contact-us' in request.path %}class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'contact-us'%}">Contact Us</a>
+                  <a {% if 'contact-us' in request.path %}class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'inquiry'%}">Contact Us</a>
                 </li>
               </ul>
-              <!-- <div class="btn-careers"><a href="job-opportunities.html">Job Opportunities</a></div> -->
+              <div class="btn-careers"><a href="{% url 'jobs' %}">Job Opportunities</a></div>
             </div>
           </div>
       </nav>

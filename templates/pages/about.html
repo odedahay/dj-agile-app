@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}| About AGILE{% endblock%}
 {% block content %}
    <!-- Hero Banner -->
    <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg'%}" style="background: url('{% static 'images/slide01.jpeg'%}') rgba(0, 0, 0, 0.3);">
     <div class="container">
       <h1 class="inner-banner__title">About Us</h1>
-      <!-- <p>Take the complexity out of customs Freight Solutions<br>
-        with customs brokerage services</p> -->
     </div>
     <!-- end container --> 
   </header>
@@ -25,46 +24,30 @@
     </svg>
   </div>
 
+  {% for part in page %}
   <section class="content-section_none">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="section-title text-left no-margin-b">
-            <!-- <h6>Who we are?</h6> -->
+          <div class="section-title no-margin-b">
             <figure><img img src="{% static 'images/logo-shape.png' %}" class="shape-news-logo" alt="AGILE" /></figure>
-            <h2>About AGILE</h2>
-         
-          <!-- end section-title --> 
+            <h2 class="mb-4">{{part.title}} </h2>
+          </div>
         </div>
       </div>
-      <!-- end row --> 
     </div>
-    <!-- end container --> 
   </section>  
-<!-- marketing -->
-
   <section class="content-section_50t">
     <div class="container">
       <div class="row justify-content-center generic-content-container">
         <div class="col-lg-8">
-          <div class="section-title text-left">
-            <!-- <h6>Who we are?</h6> -->
-            <!-- <figure><img img src="images/logo-shape.png" class="shape-news-logo" alt="AGILE" /></figure>
-            <h2>About AGILE</h2> -->
-          </div>
-            <p>AGILE Maritime Resources (AGILE) simplifies the complex and often confusing process of recruiting and hiring Filipino officers and ratings for your ocean trading ships. Our more than 26 years of experience in the ship crew supply industry in the Philippines outfitted us with the theoretical and practical knowledge allowing us to expertly navigate the maze in the Philippine bureaucracy. </p>
-            <p>We are a reliable business partner – we look after your interest. We make sure to keep your most valued crew through our meticulous crew planning and rotation. We are very proud of our 90 % retention rate. And, we keep the crew’s families happy by prompt payment of monthly Home Allotment. We are ever mindful of your crew costs. We see to it that we perform timely and cost-efficient crew changes. We manage your risks against potential crew claims – we have a strong legal background and deep practical experience to protect you from nuisance claims. </p>
-            <p>We are adaptable.  We tailor-fit our processes to be in sync with our client’s needs - patently distinct plus of doing business with medium - sized ship manning agency. </p>
-            <p>For years to come, shipping will be sailing on precarious waters. Crew changes will be impacted by the geo-political events, pandemic and climate change. When you are navigating a challenging course, you want a partner that you can depend on.  We, in AGILE got you covered.  You can count on us.</p>
-          </div>
-          <!-- end section-title --> 
+          {{ part.content | safe }}
         </div>
       </div>
-      <!-- end row --> 
     </div>
-    <!-- end container --> 
   </section>
-  <section class="content-section image-bar" data-background="{% static 'images/section-bg-02.jpeg'%}" style="background: url('{% static 'images/section-bg-02.jpeg'%}');"> </section>
+  {% endfor %}
+<section class="content-section image-bar" data-background="{% static 'images/section-bg-02.jpeg'%}" style="background: url('{% static 'images/section-bg-02.jpeg'%}');"> </section>
  
 <section class="content-section">
     <div class="container">

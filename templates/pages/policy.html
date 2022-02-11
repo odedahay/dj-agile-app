@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}| Policy{% endblock%}
+{% block content %}
+   <!-- Hero Banner -->
+   <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg'%}" style="background: url('{% static 'images/slide01.jpeg'%}') rgba(0, 0, 0, 0.3);">
+    <div class="container">
+      <h1 class="inner-banner__title">Privacy Policy</h1>
+      <!-- <p>Take the complexity out of customs Freight Solutions<br>
+        with customs brokerage services</p> -->
+    </div>
+    <!-- end container --> 
+  </header>
+  <div class="waves-grp">
+    <svg class="waves-banner2 margin-top-50t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+      <g class="waves-banner2__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+      </g>
+    </svg>
+    <svg class="waves-banner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+      <g class="waves-banner__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+      </g>
+    </svg>
+  </div>
+
+  {% for part in page %}
+  <section class="content-section_none">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="section-title no-margin-b">
+            <figure><img img src="{% static 'images/logo-shape.png' %}" class="shape-news-logo" alt="AGILE" /></figure>
+            <h2 class="mb-4">{{part.title}} </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+  <section class="content-section_50t">
+    <div class="container">
+      <div class="row justify-content-center generic-content-container">
+        <div class="col-lg-8">
+          {{ part.content | safe }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+{% endblock %}

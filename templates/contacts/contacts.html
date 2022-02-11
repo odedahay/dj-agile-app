@@ -4,7 +4,7 @@
    <!-- Hero Banner -->
    <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg'%}') rgba(0, 0, 0, 0.3);;">
     <div class="container inner-banner">
-      <h1 class="inner-banner__title">Contact</h1>  
+      <h1 class="inner-banner__title">We’d love to hear from you</h1>  
     </div>
       <!-- end container --> 
     </header>
@@ -32,7 +32,6 @@
               <figure>
                 <img src="{% static 'images/logo-shape.png'%}" class="shape-news-logo"/>
               </figure>
-              <h2>We’d love to hear from you</h2>
                 <p>Please send your enquiry to <u>agile@agilecrew.com</u>, or contact your local<br> 
     specialists using the contact details below.</p>
             </div>
@@ -96,21 +95,23 @@
             
           <div class="col-12">
               <div class="contact-form">
+                <form action="{% url 'inquiry' %}" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
                   <div class="row inner">
                       <div class="form-group col-lg-4">
-                          <input type="text" placeholder="Fullname">
+                          <input type="text" name="name" placeholder="Fullname" required>
                       </div> 
                       <!-- end form-group -->
                       <div class="form-group col-lg-4 col-md-6">
-                          <input type="text" placeholder="Email Address">
+                          <input type="text" name="email" placeholder="Email Address" required>
                       </div> 
                       <!-- end form-group -->
                       <div class="form-group col-lg-4 col-md-6">
-                          <input type="text" placeholder="Phone No">
+                          <input type="text" name="phone" placeholder="Phone No" required>
                       </div> 
                       <!-- end form-group -->
                       <div class="form-group col-12">
-                        <textarea placeholder="Message"></textarea>
+                        <textarea name="message" placeholder="Message"></textarea>
                       </div> 
                       <!-- end form-group -->
                       <div class="form-group col-12">
@@ -118,6 +119,7 @@
                       </div> 
                       <!-- end form-group -->
                   </div>
+                </form>
                   <!-- end row inner -->
               </div>
               <!-- end contact-form -->

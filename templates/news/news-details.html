@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}| News - {{news_detail.title}}{% endblock%}
 {% load humanize %}
 {% block content %}
 <!-- Hero Banner -->
 <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);;">
     <div class="container">
       <h1 class="inner-banner__title">News</h1>
-      <p>Take the complexity out of customs Freight Solutions<br> with customs brokerage services</p>
     </div>
     <!-- end container --> 
   </header>
@@ -33,7 +33,7 @@
           <div class="news-box">
               <figure>
                   {% if news_detail.photo %}
-                    <img src="{{ news_detail.photo.url }}" alt="Image">
+                    <img src="{{ news_detail.photo.url }}" alt="{{news_detail.title}}">
                   {% endif %}
               </figure>
               <div class="content"> 

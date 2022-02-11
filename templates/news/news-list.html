@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}| News{% endblock%}
 {% block content %}
 <!-- Hero Banner -->
 <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);;">
@@ -38,8 +39,7 @@
             <div class="news-box">
                 {% if news.photo %}
                   <figure class="thumbsnail-img" style="background-image: url('{{ news.photo.url }}')"></figure>
-                {% else %}
-                  <figure class="thumbsnail-img" style="background-image: url('{% static 'images/news01.jpeg' %}')"></figure>
+                
                 {% endif %}
                 <div class="content"> <small>{{news.publish | date:"M d, Y" }}</small>
                   <h3><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h3>
