@@ -127,14 +127,14 @@
         {% for news in latest_news%}
         <div class="col-md-6">
           <div class="recent-news">
-            <figure>
+            <!-- <figure>
               {% if news.photo %}
                 <img src="{{ news.photo.url }}" alt="{{ news.title }}" class="img-fluid">
               {% else %}
               <img src="{% static 'images/recent-news01.jpeg'%}" alt="{{ news.title }}" class="img-fluid">
               {% endif %}
                 <a href="{{ news.get_absolute_url }}"><i class="bi-arrow-right"></i></a> 
-            </figure>
+            </figure> -->
             <div class="content">
               <h3><a href="{{ news.get_absolute_url }}">{{ news.title}} </a></h3>
               <small>{{ news.publish | date:"M d, Y" }}</small>

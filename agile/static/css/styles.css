@@ -1244,6 +1244,7 @@ img {
 
 h1.inner-banner__title{
     padding-top: 5.8rem;
+    text-align: center;
 }
 
 @media only screen and (max-width: 991px), only screen and (max-device-width: 991px){
@@ -1575,10 +1576,19 @@ margin-bottom: 2.5rem;
     margin-bottom: 60px;
     text-align: center;
 }
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
+    .section-title {
+        margin-bottom: 25px;
+    }
+}
+.section-title-btm-20px{
+    margin-bottom: 20px;
+}
 .section-title figure {
     width: 100%;
     display: block;
     margin-bottom: 15px;
+    margin-block-start: 0.15em;
 }
 .section-title h2 {
     width: 100%;
@@ -1586,11 +1596,13 @@ margin-bottom: 2.5rem;
     font-size: 3rem;
     font-weight: 400;
 }
-@media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
-    .section-title h2 {
-        font-size: 36px;
-    }
+.section-title h3 {
+    width: 100%;
+    display: block;
+    font-size: 2.1rem;
+    font-weight: 400;
 }
+
 .section-title p {
     font-size: 1.4rem;
     width: 100%;
@@ -1604,6 +1616,17 @@ margin-bottom: 2.5rem;
     text-transform: capitalize;
 }
 
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
+    .section-title h2 {
+        font-size: 36px;
+    }
+    .section-title h3 {
+        font-size: 1.2rem;
+    }
+    .section-title p {
+        font-size: 1rem;
+    }
+}
 .article-tags a{
     text-decoration: none;
 }
@@ -1719,7 +1742,8 @@ margin-bottom: 2.5rem;
     width: 100%;
     height: 200px;
 }
-.contact-form input[type="text"] {
+.contact-form input[type="text"],
+.contact-form input[type="email"]{
     width: 100%;
 }
 .contact-form input[type="submit"] {
@@ -1769,9 +1793,7 @@ input[type="text"] {
     padding: 0 30px;
     border: 1px solid #cecece;
 }
-input.height60{
-    height: 60px;
-}
+
 
 input[type="email"] {
     width: 420px;
@@ -1790,6 +1812,9 @@ input[type="submit"] {
     background: #212223;
     border: none;
     padding: 0 50px;
+}
+input.height60{
+    height: 60px;
 }
 
 .contact-numbers a,

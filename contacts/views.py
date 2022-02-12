@@ -33,12 +33,14 @@ def applicant(request):
         if 'cv_file' in request.FILES:
             cv_file = request.FILES['cv_file']
         else:
-            cv_file = False
+            cv_file = 'None'
 
         # Save to DB
         applicant = Applicant(first_name=first_name, last_name=last_name, email=email, contact_num=contact_num, position=position, cv_file=cv_file, message=message, job_id=job_id, job_category=job_category)
         applicant.save()
     
-        return redirect('/contact-us/thank-you')
+        return redirect('/contact-us/applicant/thank-you/')
 
-    #return render('contact-us/applicant')
+def job_applicant(request):
+    context={}
+    return render(request, 'jobs/thank-you.html',context)

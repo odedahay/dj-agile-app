@@ -80,6 +80,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'job_category.context_processors.menu_links',
+                'pages.context_processors.comp_footer',
             ],
         },
     },
