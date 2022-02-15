@@ -11,13 +11,13 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
               <ul class="navbar-nav navbar-nav-custom mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a {% if '/' == request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'index'%}">Home </a>
+                  <a {% if '/' == request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'index' %}">Home </a>
                 </li>
                 <li class="nav-item">
-                  <a {% if 'about' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'about'%}">About AGILE</a>
+                  <a {% if 'about' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'about' %}">About AGILE</a>
                 </li>
                 <li class="nav-item">
-                  <a {% if 'news' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'news:news_list'%}">News</a>
+                  <a {% if 'news' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'news:news_list' %}">News</a>
                 </li>
                 <li class="nav-item">
                   <a {% if 'testimonials' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'testimonials:testimonials_list' %}">Testimonials</a>
@@ -27,7 +27,7 @@
                   <a {% if 'contact-us' in request.path %}class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'inquiry'%}">Contact Us</a>
                 </li>
               </ul>
-              <div class="btn-careers"><a href="{% url 'jobs' %}">Job Opportunities</a></div>
+              <div class="btn-careers"><a href="{% url 'jobs:jobs_list' %}">Job Opportunities</a></div>
             </div>
           </div>
       </nav>

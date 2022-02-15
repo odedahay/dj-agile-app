@@ -9,7 +9,7 @@ urlpatterns = [
     path('news/', include('news.urls', namespace='news')),
     path('testimonials/', include('testimonials.urls', namespace='testimonials')),
     path('contact-us/', include('contacts.urls')),
-    path('jobs/', include('jobs.urls')),
+    path('jobs/', include('jobs.urls', namespace='jobs')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

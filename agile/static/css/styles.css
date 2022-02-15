@@ -1737,11 +1737,14 @@ margin-bottom: 2.5rem;
         display: block;
     }
 }
-
+.contact-form textarea.textarea-height{
+    height: 100px;
+}
 .contact-form textarea {
     width: 100%;
     height: 200px;
 }
+
 .contact-form input[type="text"],
 .contact-form input[type="email"]{
     width: 100%;
@@ -1823,6 +1826,43 @@ input.height60{
     text-decoration: none;
 }
 
+.loading_bg {
+    background: rgba(0, 0, 0, .5);
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+}
+
+.loader{
+    position: relative;
+    z-index: 1061;
+    background-color: #fff;
+    padding: 20px;
+    color: #000;
+    font-size: 1.8rem;
+}
+
+.error-msg{
+    font-size: 14px;
+    color: #ff0000;
+}
+
+input.error-input{
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+.errorlist{
+    color: #ff0000;
+    list-style: none;
+    padding-left: 0;
+}
 
  /* JOB  SECTION
   -------------------------------------------------- */

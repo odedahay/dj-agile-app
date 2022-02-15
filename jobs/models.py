@@ -18,7 +18,10 @@ class Job(models.Model):
         verbose_name_plural = 'job Opportunities'
 
     def get_url(self):
-        return reverse('job_details', args=[self.category.slug, self.slug])
+        return reverse('jobs:job_details', args=[self.category.slug, self.slug])
+    
+    def share_url(self):
+        return reverse('jobs:job_share', args=[self.category.slug, self.slug])
 
     def __str__(self):
         return self.job_name

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}| Contact Us{% endblock%}
 {% block content %}
    <!-- Hero Banner -->
    <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg'%}') rgba(0, 0, 0, 0.3);;">
@@ -69,7 +70,7 @@
               </div>
             </div>
             <div class="col d-md-flex justify-content-center align-items-start">
-              <div>
+              <div class="mt-4">
                 <a href="https://goo.gl/maps/KWZUkhWFDbnZjowv8" data-fancybox="" data-width="640" data-height="360" class="custom-button" target="_blank"><i class="bi bi-pin-map"></i> FIND US ON MAP</a>
               </div>
             </div>
@@ -131,4 +132,9 @@
       </div>
       <!-- end container --> 
     </section>
+{% endblock %}
+{% block extra_js %}
+<script>
+  // JS script here
+</script>
 {% endblock %}
