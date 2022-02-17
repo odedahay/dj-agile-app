@@ -10,5 +10,7 @@
   </svg>
 
 {% for content in footer %}
-  {{ content.body | safe }}
+  {{ content.content | safe }}
 {% endfor %}
+
+{{ footer.content }}

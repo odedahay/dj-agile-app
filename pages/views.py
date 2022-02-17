@@ -5,7 +5,7 @@ from .models import Page, Components
 
 def index(request):
     latest_testimonials = Testimonial.objects.all().filter(status='published')[:3]
-    latest_news = News.objects.all().filter(status='published')[:3]
+    latest_news = News.objects.all().filter(status='published')[:2]
 
     context = {
         'latest_testimonials':latest_testimonials,

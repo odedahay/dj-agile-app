@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'django.contrib.humanize',
     'taggit',
+    'import_export',
 
 ]
 

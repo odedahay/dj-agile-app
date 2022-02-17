@@ -26,7 +26,7 @@ class Page(models.Model):
 
 class Components(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    body = models.TextField(blank=True)
+    content = models.TextField(blank=True)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
     created_date = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True)
@@ -36,7 +36,13 @@ class Components(models.Model):
         ordering = ('title',)
         verbose_name = 'component'
         verbose_name_plural = 'Components'
-    
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return ["title"]
+        else:
+            return [] 
+            
     def __str__(self):
         return self.title
 

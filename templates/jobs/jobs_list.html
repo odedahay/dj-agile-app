@@ -51,7 +51,7 @@
                 <div class="widget widget-job-bg">
                 
                   <h6 class="widget-title">Categories</h6>
-                  <ul class="categories">          
+                  <ul class="categories">       
                       <li><a href="{% url 'jobs:jobs_list' %}#job-list" class="categories__title-tag">All Jobs</a></li>
                       {% for category in links %}
                       <li><a href="{{ category.get_url}}#job-list" class="categories__title-tag">{{ category.category_name}}</a></li>

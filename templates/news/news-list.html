@@ -36,11 +36,15 @@
       
             {% for news in news_list %}
             <div class="news-box">
+
                 {% if news.photo %}
                   <figure class="thumbsnail-img" style="background-image: url('{{ news.photo.url }}')"></figure>
-                
+                {% else %}
+                  <figure></figure>
                 {% endif %}
-                <div class="content"> <small>{{news.publish | date:"M d, Y" }}</small>
+              
+                <div class="content"> 
+                  <small>{{news.publish | date:"M d, Y" }}</small>
                   <h3><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h3>
 
                   <div class="article-tags">
@@ -55,7 +59,7 @@
                     <span>by <b>{{news.author}}</b></span>
                   </div>
                   
-                  <p>{{ news.content | safe | truncatechars:170}}</p>
+                  <p>{{ news.content | safe  | truncatewords:18 | linebreaks}}</p>
                   <!-- end author --> 
                 </div>
                 <!-- end content -->

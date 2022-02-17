@@ -4,7 +4,6 @@ from . models import News
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status', 'author')
-    #list_display = ('title', 'slug', 'author', 'publish', 'status')
     list_filter = ('title', 'status', 'created', 'author')
     list_display_links = ('title',)
     list_editable = ('slug','status',)

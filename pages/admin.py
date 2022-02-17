@@ -9,8 +9,14 @@ class PagesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 class ComponentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title',)
+    list_display = ('id', 'title', 'updated')
     list_display_links = ('id','title',)
+
+    def get_readonly_fields(self, request, obj=None):
+        defaults = super().get_readonly_fields(request, obj=obj)
+        if obj:  # if we are updating an object
+            defaults = tuple(defaults) + ('title', )  # make sure defaults is a tuple
+        return defaults
 
 admin.site.register(Components, ComponentAdmin)
 admin.site.register(Page, PagesAdmin)

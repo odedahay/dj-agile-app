@@ -5,8 +5,12 @@ from django.core.mail import send_mail, BadHeaderError
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
+from pages.models import Components
 
 def inquiry(request):
+
+    contact_admin_email = Components.objects.get(title__exact='contact_admin_email')
+    
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -24,7 +28,7 @@ def inquiry(request):
         contact = Contact(name=name, email=email, phone=phone, message=messages)
 
         # Send email to Admin email
-        admin_email = 'odedahay@yahoo.com'
+        admin_email = contact_admin_email.content
         
         # EMAIL_HOST_USER is from setting, using Gmail smtp
         email_provider = settings.EMAIL_HOST_USER
@@ -47,6 +51,9 @@ def thank_you(request):
     return render(request, 'contacts/thank-you.html')
 
 def applicant(request):
+
+    applicant_admin_email = Components.objects.get(title__exact='applicant_admin_email')
+
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -80,7 +87,7 @@ def applicant(request):
         applicant.save()
 
         # Send email to Admin email
-        admin_email = 'odedahay@yahoo.com'
+        admin_email = applicant_admin_email.content
         
         # EMAIL_HOST_USER is from setting, using Gmail smtp
         email_provider = settings.EMAIL_HOST_USER

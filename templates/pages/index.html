@@ -92,16 +92,22 @@
     </div>
     
     <div class="row row__gutters row__equal-height-at-large row__gutters-small row__t-padding generic-content-container">
-      {% for tetimonial in latest_testimonials %}
+      {% for testimonial in latest_testimonials %}
       <div class="col-md-4">
         <div class="testimonial">
           <div class="testimonial__photo">
-            <img sizes="160px" srcset="{{ tetimonial.image.url }}" alt="{{tetimonial.name}}">
+
+            {% if testimonial.image %}
+              <img sizes="160px" srcset="{{ testimonial.image.url }}" alt="{{testimonial.name}}">
+            {% else %}
+              <img src="{% static 'images/profile-default.jpg' %}" alt="Image"> 
+            {% endif%}
+          
           </div>
-          <h3 class="testimonial__title">{{tetimonial.name}}</h3>
-          <h3 class="testimonial__subtitle">{{tetimonial.designation}}</h3>
-          {{tetimonial.content | safe | truncatechars:170 }}
-          <p><a href="{{ tetimonial.get_absolute_url }}" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a></p>
+          <h3 class="testimonial__title">{{testimonial.name}}</h3>
+          <h3 class="testimonial__subtitle">{{testimonial.designation}}</h3>
+          {{testimonial.content | safe | truncatechars:170 }}
+          <p><a href="{{ testimonial.get_absolute_url }}" class="testimonial--button"><i class="bi bi-arrow-right-short"></i> Read More</a></p>
         </div>
       </div>
       {% endfor %}
@@ -125,25 +131,17 @@
         </div>
         <!-- end col-12 -->
         {% for news in latest_news%}
-        <div class="col-md-6">
-          <div class="recent-news">
-            <!-- <figure>
-              {% if news.photo %}
-                <img src="{{ news.photo.url }}" alt="{{ news.title }}" class="img-fluid">
-              {% else %}
-              <img src="{% static 'images/recent-news01.jpeg'%}" alt="{{ news.title }}" class="img-fluid">
-              {% endif %}
-                <a href="{{ news.get_absolute_url }}"><i class="bi-arrow-right"></i></a> 
-            </figure> -->
-            <div class="content">
-              <h3><a href="{{ news.get_absolute_url }}">{{ news.title}} </a></h3>
-              <small>{{ news.publish | date:"M d, Y" }}</small>
-              {{news.content | safe | truncatechars:170 }}
+          <div class="col-md-6">
+            <div class="recent-news">
+              <div class="content">
+                <h3>
+                  <a href="{{ news.get_absolute_url }}"> {{ news.title}} </a>
+                </h3>
+                <small>{{ news.publish | date:"M d, Y" }}</small>
+                {{news.content | safe | truncatewords:17 | linebreaks}}
+              </div>
             </div>
-            <!-- end content --> 
           </div>
-          <!-- end recent-news --> 
-        </div>
         {% endfor %}
         <!-- end col-6 -->
       </div>

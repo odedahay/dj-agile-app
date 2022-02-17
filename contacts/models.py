@@ -1,7 +1,8 @@
-from email import message
-from turtle import position
+from re import I
 from django.db import models
 from datetime import datetime
+from django.shortcuts import render, get_object_or_404
+from jobs.models import Job
 
 class Contact(models.Model):
     name = models.CharField(max_length=250)
