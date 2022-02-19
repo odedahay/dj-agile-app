@@ -54,12 +54,24 @@
                   <ul class="categories">       
                       <li><a href="{% url 'jobs:jobs_list' %}#job-list" class="categories__title-tag">All Jobs</a></li>
                       {% for category in links %}
-                      <li><a href="{{ category.get_url}}#job-list" class="categories__title-tag">{{ category.category_name}}</a></li>
+                        <li><a href="{{ category.get_url}}#job-list" class="categories__title-tag">{{ category.category_name}}</a></li>
                       {% endfor %}
-                    </ul>
+                  </ul>
+                  <!-- <h5 class="mt-4 border-top">Download Form</h5> -->
                 </div>
+
                 <!-- end widget -->
-                
+                {% if form_applicant %}
+                <div class="widget widget-job-bg">
+                  {% for item in form_applicant %}
+                  <h5 class="">{{item.title}}</h5>
+            
+                  <p class="mb-3">
+                    <a href="{{item.document.url}}" class="btn-link text-decoration-none" target="_blank"><i class="bi bi-arrow-down-circle"></i> {{item.description}}</a>
+                  </p>
+                  {% endfor %}
+                </div>
+                {% endif %}
               </aside>
         </div>    
         <div class="col-md-9" >

@@ -1,5 +1,9 @@
-from . models import Components
+from . models import Components, Assets
 
 def comp_footer(request):
-    footer = Components.objects.filter(title__exact='footer')
+    footer = Components.objects.filter(id__exact=1)
     return {'footer': footer}
+
+def form_applicant(request):
+    form_applicant = Assets.objects.filter(id__exact=1, is_available=True)
+    return {'form_applicant': form_applicant}

@@ -30,8 +30,9 @@
       <div class="row">
         <div class="col-lg-8">
           {% if tag %}
-          <h2 class="inner-banner__title">Posts tagged with "<span class="inner-banner__title-tag">{{ tag.name }}</span>"</h2>
+            <h2 class="inner-banner__title">Posts tagged with "<span class="inner-banner__title-tag">{{ tag.name }}</span>"</h2>
           {% endif %}
+          
           {% if news_list %}
       
             {% for news in news_list %}
@@ -54,12 +55,10 @@
                       </p>
                   </div>
                   
-                  <div class="author">
-                    <!-- <img src="{% static 'images/avatar.jpeg' %}" alt="Image"> -->
+                  <div class="author mb-3">
                     <span>by <b>{{news.author}}</b></span>
                   </div>
-                  
-                  <p>{{ news.content | safe  | truncatewords:18 | linebreaks}}</p>
+                  {{ news.content | safe  | truncatewords:18 | linebreaks}}
                   <!-- end author --> 
                 </div>
                 <!-- end content -->
@@ -78,6 +77,13 @@
         <div class="col-lg-4">
           <aside class="sidebar">
               <!-- end widget -->
+              <div class="widget">
+                <h6 class="widget-title">SEARCH</h6>
+                <form action="{% url 'news:search' %}">
+                  <input type="search" placeholder="Type here to search" class="height60" name="keyword">
+                  <input type="submit" value="Search">
+                </form>
+              </div>
               <div class="widget">
               <h6 class="widget-title">Sort News Articles By</h6>
               <ul class="categories">          

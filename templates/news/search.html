@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}| Search{% endblock%}
+{% block content %}
+<!-- Hero Banner -->
+<header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);;">
+    <div class="container">
+      <h1 class="inner-banner__title">Search</h1>
+    </div>
+    <!-- end container --> 
+</header>
+<div class="waves-grp">
+    <svg class="waves-banner2 margin-top-50t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+    <g class="waves-banner2__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+    </g>
+    </svg>
+    <svg class="waves-banner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+    <g class="waves-banner__parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="#0000cc" />
+    </g>
+    </svg>
+</div>
+
+  <!-- marketing -->
+  <section class="content-section content-section-40">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          {% if tag %}
+          <h2 class="inner-banner__title">Posts tagged with "<span class="inner-banner__title-tag">{{ tag.name }}</span>"</h2>
+          {% endif %}
+          {% if news_list %}
+      
+            {% for news in news_list %}
+            <div class="news-box">
+
+                {% if news.photo %}
+                  <figure class="thumbsnail-img" style="background-image: url('{{ news.photo.url }}')"></figure>
+                {% else %}
+                  <figure></figure>
+                {% endif %}
+              
+                <div class="content"> 
+                  <small>{{news.publish | date:"M d, Y" }}</small>
+                  <h3><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h3>
+                  <div class="article-tags">
+                     <p>Tags:
+                        {% for tag in news.tags.all %}
+                            <a href="{% url 'news:news_list_by_tag' tag.slug %}" class="article-tags--tag-link">{{ tag.name }}</a>
+                            {% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                      </p>
+                  </div>
+                  <div class="author mb-3">
+                    <span>by <b>{{news.author}}</b></span>
+                  </div>
+                  {{ news.content | safe | truncatewords:20 }}
+                </div>
+            </div>
+            
+            {% endfor %}
+          {% else %}
+            <p class="lead">No news available</p>
+          {% endif %}
+          
+        </div>
+        <div class="col-lg-4">
+          <aside class="sidebar">
+              <!-- end widget -->
+              <div class="widget">
+                <h6 class="widget-title">SEARCH</h6>
+                <form action="{% url 'news:search' %}">
+                  <input type="search" placeholder="Type here to search" class="height60" name="keyword">
+                  <input type="submit" value="Search">
+                </form>
+              </div>
+              <div class="widget">
+              <h6 class="widget-title">Sort News Articles By</h6>
+              <ul class="categories">          
+                  {% for tag in tags_list %}
+                    <li><a href="{% url 'news:news_list_by_tag' tag.slug %}" class="categories__title-tag">{{ tag.name }}</a></li>
+                  {% endfor %}
+    
+                </ul>
+              </div>
+              <!-- end widget -->
+              
+            </aside>
+            
+        </div>
+    </div>
+    </div>
+      
+  </section>
+
+{% endblock %}

@@ -5,8 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- Meta Tags-->
+    {% if 'news' in request.path %}
+        <title>AGILE Crew | {{news_detail.title}}</title>
+        <meta property="og:title" content="{{news_detail.title}}">
+        <meta property="og:type"  content="article" />
+        <meta name="description" property="og:description" content="{{news_detail.content|striptags|truncatewords:20}}">
+        {% if news_detail.photo %}
+        <meta property="og:image" content="{{news_detail.photo.url}}">
+        <meta property="og:image:secure_url" content="http://127.0.0.1:8000/news/{{news_detail.slug}}">
+        {% else %}
+        <meta property="og:image" content="http://localhost:8000/static/images/agile-logo.png">  
+        {% endif%}
+        <meta property="og:image:alt" content="{{news_detail.title}}">
+        <meta property="og:url" content="http://127.0.0.1:8000/news/{{news_detail.slug}}">
+        <meta name="twitter:card" value="summary">
+    {% else %}
+        <title>AGILE Crew {% block title%}{% endblock %}</title>
+        <meta name="description" content="AGILE Maritime Resources (AGILE) simplifies the complex and often confusing process of recruiting and hiring Filipino officers and ratings for your ocean trading ships. ">
+    {% endif %}
+    <!-- end Meta Tags-->
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
-    <title>AGILE Crew {% block title%}{% endblock %}</title>
+    <meta name="description" content="This page is about...">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'bootstrap-icons/bootstrap-icons.css' %}">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">

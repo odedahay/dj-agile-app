@@ -1,7 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-from job_category.models import Category
-from .models import Job
+from .models import Job, JobCategory
 from .forms import EmailJobForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -14,7 +13,7 @@ def jobs(request, category_slug=None):
     jobs = None
 
     if category_slug != None:
-        categories = get_object_or_404(Category, slug=category_slug)
+        categories = get_object_or_404(JobCategory, slug=category_slug)
         jobs = Job.objects.filter(category=categories, is_available=True)
         jobs_count = jobs.count()
     else:

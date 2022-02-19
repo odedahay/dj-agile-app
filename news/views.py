@@ -1,3 +1,4 @@
+from ast import keyword
 from tkinter.messagebox import NO
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -53,3 +54,26 @@ def news_detail(request, c_slug=None):
     }
 
     return render (request, 'news/news-details.html', context)
+
+def search(request, tag_slug=None):
+    object_list = News.objects.order_by('-publish').filter(status='published')
+    tags_list = News.tags.all()
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        object_list = object_list.filter(tags__in=[tag])
+
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+
+        if keyword:
+            news_list = object_list.filter(content__icontains=keyword)
+
+    context = {
+        'news_list':news_list,
+        'tag':tag,
+        'tags_list':tags_list
+    }
+
+    return render(request, 'news/search.html', context)

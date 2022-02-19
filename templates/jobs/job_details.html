@@ -43,19 +43,29 @@
     <section class="content-section no-bottom-spacing content-section-40" data-background="#f9f7ef" style="background: rgb(249, 247, 239);">
       <div class="container">
         <div class="row">
-          <div class="col-lg-5 col-md-6">
+          <div class="d-md-flex justify-content-between">
             <div class="section-title text-left section-title-mb-20">
-                <h6>Category/Department:</h6>
-                <p class="mb-3">{{ single_job.category }}</p>
-               
+              <h6>Category/Department:</h6>
+              <p class="mb-3">{{ single_job.category }}</p>   
             </div>
+            {% if form_applicant %}
+            <div class="section-title text-left section-title-mb-20">
+              {% for item in form_applicant %}
+              <h6>{{ item.title}}</h6>
+              <p class="mb-3">
+                  <a href="{{item.document.url}}" class="btn-link text-decoration-none" target="_blank"><i class="bi bi-arrow-down-circle"></i> {{item.description}}</a>
+              </p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+<!-- 
+          <div class="col-lg-5 col-md-6">
+            
           </div>
           <div class="col-lg-5 col-md-6">
-            <div class="section-title text-left section-title-mb-20">
-                <h6>Designation</h6>
-                <p class="mb-3">TBA</p>
-            </div>
-          </div>
+            
+          </div> -->
           <!-- end col-12 -->
             
           <div class="col-12">
