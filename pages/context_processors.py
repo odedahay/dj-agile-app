@@ -1,7 +1,7 @@
 from . models import Components, Assets
 
 def comp_footer(request):
-    footer = Components.objects.filter(id__exact=1)
+    footer = Components.objects.filter(slug__exact="footer-section")
     return {'footer': footer}
 
 def form_applicant(request):

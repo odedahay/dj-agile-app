@@ -33,11 +33,10 @@ def policy(request):
     return render(request, 'pages/policy.html', context)
 
 
-def comp_footer(request):
+# def comp_footer(request):
 
-    footer = Components.objects.filter(title__exact='footer')
-
-    context ={
-        'footer': footer
-    }
-    return render(request, 'base.html', context)
+#     footer = Components.objects.filter(title__exact='footer')
+#     context ={
+#         'footer': footer
+#     }
+#     return render(request, 'base.html', context)

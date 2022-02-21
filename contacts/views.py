@@ -9,8 +9,9 @@ from pages.models import Components
 
 def inquiry(request):
 
-    contact_admin_email = Components.objects.get(id__exact=2)
-    
+    #contact_admin_email = Components.objects.get(id__exact=2)
+    contact_admin_email = Components.objects.filter(slug__exact='contact-admin-email')
+
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -52,7 +53,8 @@ def thank_you(request):
 
 def applicant(request):
 
-    applicant_admin_email = Components.objects.get(id__exact=4)
+    # applicant_admin_email = Components.objects.get(id__exact=4)
+    applicant_admin_email = Components.objects.filter(slug__exact='applicant-admin-email')
 
     if request.method == 'POST':
         first_name = request.POST['first_name']

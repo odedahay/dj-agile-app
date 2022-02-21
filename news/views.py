@@ -59,7 +59,7 @@ def search(request, tag_slug=None):
     object_list = News.objects.order_by('-publish').filter(status='published')
     tags_list = News.tags.all()
     tag = None
-
+    news_list = ""
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         object_list = object_list.filter(tags__in=[tag])

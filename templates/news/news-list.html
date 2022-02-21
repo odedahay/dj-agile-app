@@ -5,7 +5,11 @@
 <!-- Hero Banner -->
 <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide01.jpeg' %}') rgba(0, 0, 0, 0.3);;">
   <div class="container">
+    {% if tag %}
+    <h1 class="inner-banner__title">Posts tagged with "<span class="inner-banner__title-tag" style="color: #fff;">{{ tag.name }}</span>"</h1>
+    {% else %}
     <h1 class="inner-banner__title">News</h1>
+    {% endif %} 
   </div>
   <!-- end container --> 
 </header>
@@ -29,10 +33,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          {% if tag %}
-            <h2 class="inner-banner__title">Posts tagged with "<span class="inner-banner__title-tag">{{ tag.name }}</span>"</h2>
-          {% endif %}
-          
+         
           {% if news_list %}
       
             {% for news in news_list %}
