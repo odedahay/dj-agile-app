@@ -6,7 +6,6 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import HttpResponse
 
-
 def jobs(request, category_slug=None):
 
     categories = None
