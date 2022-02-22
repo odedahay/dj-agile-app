@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'testimonials.apps.TestimonialsConfig',
     'contacts.apps.ContactsConfig',
-    'job_category.apps.JobCategoryConfig',
     'jobs.apps.JobsConfig',
     'ckeditor',
     'ckeditor_uploader',
