@@ -129,17 +129,23 @@
           </div>
           <!-- end section-title --> 
         </div>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 mx-md-5 g-4">
         <!-- end col-12 -->
         {% for news in latest_news%}
-          <div class="col-md-6">
+          <div class="col">
             <div class="recent-news">
               <div class="content">
                 <h3>
                   <a href="{{ news.get_absolute_url }}"> {{ news.title}} </a>
                 </h3>
                 <small>{{ news.publish | date:"M d, Y" }}</small>
+                
+              </div>
+              <div>
                 {{news.content | safe | truncatewords:17 | linebreaks}}
               </div>
+              
             </div>
           </div>
         {% endfor %}

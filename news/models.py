@@ -32,7 +32,7 @@ class News(models.Model):
     
 
     class Meta:
-        ordering = ('-created',)
+        ordering = ('-publish',)
         verbose_name = 'news'
         verbose_name_plural = 'news'
 
