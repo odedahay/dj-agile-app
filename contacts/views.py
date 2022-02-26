@@ -12,8 +12,7 @@ def is_ajax(request):
 
 def inquiry(request):
 
-    #contact_admin_email = Components.objects.get(id__exact=2)
-    contact_admin_email = Components.objects.filter(slug__exact='contact-admin-email')
+    contact_admin_email = Components.objects.get(slug__exact='contact-admin-email')
 
     if request.method == 'POST':
         name = request.POST['name']
