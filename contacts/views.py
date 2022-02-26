@@ -1,4 +1,4 @@
-from sre_constants import SUCCESS
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Contact, Applicant
 from django.core.mail import send_mail, BadHeaderError
@@ -6,6 +6,9 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
 from pages.models import Components
+
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
 def inquiry(request):
 
@@ -53,10 +56,11 @@ def thank_you(request):
 
 def applicant(request):
 
-    # applicant_admin_email = Components.objects.get(id__exact=4)
-    applicant_admin_email = Components.objects.filter(slug__exact='applicant-admin-email')
-
+    applicant_admin_email = Components.objects.get(slug__exact='applicant-admin-email')
+   
     if request.method == 'POST':
+    #if is_ajax(request=request):
+
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -90,7 +94,7 @@ def applicant(request):
 
         # Send email to Admin email
         admin_email = applicant_admin_email.content
-        
+       
         # EMAIL_HOST_USER is from setting, using Gmail smtp
         email_provider = settings.EMAIL_HOST_USER
 
@@ -117,6 +121,9 @@ def applicant(request):
             'success':success
         }
         return redirect('/contact-us/applicant/thank-you/', context)
+        # return JsonResponse({
+        #             'msg':'Success'
+        #         })
 
 def job_applicant(request):
     context={}

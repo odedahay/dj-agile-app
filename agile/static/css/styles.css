@@ -1829,6 +1829,12 @@ input.height60{
     height: 60px;
 }
 
+.btn-disable{
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .contact-numbers a,
 .contact-emails a{
     color: inherit;
