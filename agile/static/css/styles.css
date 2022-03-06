@@ -2068,7 +2068,11 @@ h2.job-requirement{
 
   .team-member figure img {
     width: 180px;
+    height: 180px;
+    overflow: hidden;
+    object-fit: cover;
     border-radius: 50%;
+
 }
 
 .testimonial p{
