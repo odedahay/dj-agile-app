@@ -1,0 +1,28 @@
+
+#header{
+    height: 50px;
+    background-color: #fff;
+    color: #000;
+    border-bottom: 8px solid rgba(0, 0, 204, 1);
+}
+
+#header a:link, #header a:visited{
+    color:rgb(0, 0, 204);
+}
+
+#branding h1{
+    color: #0000CC;
+    font-weight: 500;   
+}
+
+.module h2, .module caption, .inline-group h2{
+    background: #0000CC;
+}
+
+div.breadcrumbs{
+    background: #0000CC;
+}
+
+a:link, a:visited{
+    color: #000;
+}
