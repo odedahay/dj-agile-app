@@ -1033,6 +1033,12 @@ a.grey-button{
     }
 }
 
+.section-btm-0{
+    padding: 0 0 0 0!important;
+}
+.content-section-120{
+    padding: 120px 0 0 0;
+}
 .content-section-40{
     padding: 40px 0;
 }
@@ -1263,7 +1269,7 @@ h1.inner-banner__title{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    height: 480px;
+    height: 380px;
     background-color: #000;
     background-size: cover !important;
     background-blend-mode: multiply;

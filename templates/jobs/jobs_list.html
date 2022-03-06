@@ -7,7 +7,6 @@
   <div class="container">
     <h1 class="inner-banner__title">We’d have jobs for you</h1>
   </div>
-  <!-- end container --> 
 </header>
 <div class="waves-grp">
   <svg class="waves-banner2 margin-top-50t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -29,9 +28,12 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12">
-          <div class="section-title section-title-mb-40" id="job-list">
-            <figure class="figure-job"><img src="{% static 'images/agile-logo.svg' %}" alt="Image"></figure>
-              <p>Search by Job title, field or competency - It only takes a few seconds. Apply now.</p>
+          <div class="section-title section-title-mb-40" id="job-list_">
+            <figure class="figure-job">
+              <!-- <img src="{% static 'images/agile-logo.svg' %}" alt="Image"> -->
+              <p class="pt-4">Search by Job title, field or competency - It only takes a few seconds. Apply now.</p>
+            </figure>
+            
           </div>
           <!-- end section-title --> 
         </div>
@@ -52,9 +54,9 @@
                 
                   <h6 class="widget-title">Categories</h6>
                   <ul class="categories">       
-                      <li><a href="{% url 'jobs:jobs_list' %}#job-list" class="categories__title-tag">All Jobs</a></li>
+                      <li><a href="{% url 'jobs:jobs_list' %}" class="categories__title-tag">All Jobs</a></li>
                       {% for category in links %}
-                        <li><a href="{{ category.get_url}}#job-list" class="categories__title-tag">{{ category.category_name}}</a></li>
+                        <li><a href="{{ category.get_url}}" class="categories__title-tag">{{ category.category_name}}</a></li>
                       {% endfor %}
                   </ul>
                   <!-- <h5 class="mt-4 border-top">Download Form</h5> -->
