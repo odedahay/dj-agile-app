@@ -742,10 +742,15 @@ a.grey-button{
 .wrapper__b-margin{
     margin-bottom: 1rem;
 }
+
 @media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
     .wrapper__b-margin{
         margin-bottom: 3.875rem;
-}
+    }
+    .wrapper__b-margin_jointeam{
+        margin-bottom: 0rem;
+        padding: 0;
+    }
 }
 
 .headline{
@@ -792,6 +797,22 @@ a.grey-button{
 }
 .headline__no-t-margin{
     margin-top: 0;
+}
+
+.join-img-description h2{
+    font-size: 1rem;
+    padding-top: 5px;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+}
+@media (min-width: 767px) {
+    .join-img-description h2{
+        font-size: 1.35rem;
+        padding-top: 10px;
+        font-weight: 400;
+        margin-bottom: 0;
+    }
 }
 
 /* PAGE SECTION CONTENT
@@ -1633,7 +1654,7 @@ margin-bottom: 2.5rem;
 
 @media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
     .section-title h2 {
-        font-size: 36px;
+        font-size: 32px;
     }
     .section-title h3 {
         font-size: 1.2rem;
