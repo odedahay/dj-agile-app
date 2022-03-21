@@ -92,7 +92,7 @@
                             <div class="job-detail">
                               <h2>{{ job.job_name }}</h2>
                               <p class="job-detail-date">Date Posted: {{ job.created_date | date:"M d, Y" }}</p>
-                              {{ job.description | safe | truncatewords:34 }}
+                              {{ job.description | safe | truncatewords:42 }}
                              
                             </div>
                             <div class="arrow-circle">
