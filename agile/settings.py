@@ -82,6 +82,7 @@ TEMPLATES = [
                 'jobs.context_processors.menu_links',
                 'pages.context_processors.form_applicant',
                 'pages.context_processors.comp_footer',
+                'pages.context_processors.comp_contact_section',
             ],
         },
     },

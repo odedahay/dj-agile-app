@@ -26,60 +26,15 @@
 
   <!-- marketing -->
   <section class="content-section content-section__no-top-padding content-section-20">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <div class="section-title ">
-              <figure>
-                <img src="{% static 'images/logo-shape.png'%}" class="shape-news-logo"/>
-              </figure>
-                <p>Get in touch! Here’s how you can reach us.</p>
-            </div>
-            <!-- end section-title --> 
-          </div>
-          <!-- end col-12 -->
-          <div class="row gx-4 md-px-5 row-cols-1 row-cols-lg-4">
-            <div class="col d-md-flexjustify-content-center">
-              <div>
-                <h6 class="widget-title">Address </h6>
-                <address><strong>AGILE Maritime Resources, Inc.</strong><br>
-                  3906 Woodland Park Centre<br>
-                  Hen. Macabulos St. Bangkal, Makati City, 
-                  1233, Philippines
-                </address>
-              </div>
-            </div>
-            <div class="col d-md-flex justify-content-center">
-              <div>
-                <h6 class="widget-title">Telephone Nos.</h6>
-                <p class="contact-numbers">
-                  <a href="tel:+63277381606" title="+63 2 7738 1606"><i class="bi bi-phone"></i> +63 2 7738 1606 </a><br>
-                  <a href="tel:+63277381607" title="+63 2 7738 1607"><i class="bi bi-phone"></i> +63 2 7738 1607</a><br>
-                  <a href="tel:+63288890251" title="+63 2 8889 0251"><i class="bi bi-phone"></i> +63 2 8889 0251 </a><br>
-                </p>
-              </div>
-            </div>
-            <div class="col d-md-flex justify-content-center">
-              <div>
-                <h6 class="widget-sub-title">Email Address</h6>
-                <p class="contact-emails">
-                  <a href="mailto:agile@agilecrew.com"><i class="bi bi-envelope"></i> agile@agilecrew.com </a> <br>
-                  <!-- <a href="mailto:recruitment@agilecrew.com"><i class="bi bi-envelope"></i> recruitment@agilecrew.com</a> <br>
-                  <a href="mailto:operations@agilecrew.com"><i class="bi bi-envelope"></i> operations@agilecrew.com</a>  -->
-                </p>
-              </div>
-            </div>
-            <div class="col d-md-flex justify-content-center align-items-start">
-              <div class="mt-4">
-                <a href="https://goo.gl/maps/KWZUkhWFDbnZjowv8" data-fancybox="" data-width="640" data-height="360" class="custom-button" target="_blank"><i class="bi bi-pin-map"></i> FIND US ON THE MAP</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end row --> 
-      </div>
-      <!-- end container --> 
-    </section>
+  
+    <!-- Contact Details section -->
+    {% for contact_detail in contact_details_section %} 
+      {{ contact_detail.content | safe }}
+    {% endfor %}
+
+  
+    <!-- end container --> 
+  </section>
     <section class="content-section no-bottom-spacing content-section-40" data-background="#f9f7ef" style="background: rgb(249, 247, 239);">
       <div class="container">
         <div class="row">
