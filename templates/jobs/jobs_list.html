@@ -67,10 +67,15 @@
                 <div class="widget widget-job-bg">
                   {% for item in form_applicant %}
                   <h5 class="">{{item.title}}</h5>
-            
-                  <p class="mb-3">
-                    <a href="{{item.document.url}}" class="btn-link text-decoration-none" target="_blank"><i class="bi bi-arrow-down-circle"></i> {{item.description}}</a>
-                  </p>
+                    {% if item.document %}
+                      <p class="mb-3">
+                        <a href="{{item.document.url}}" class="btn-link text-decoration-none" target="_blank"><i class="bi bi-arrow-down-circle"></i> {{item.description}}</a>
+                      </p>
+                    {% else %}
+                      <p class="mb-3">
+                        <span>No document available</span>
+                          </p>
+                    {% endif %}
                   {% endfor %}
                 </div>
                 {% endif %}
