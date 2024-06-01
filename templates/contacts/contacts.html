@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}| Contact Us{% endblock%}
+{% block title %}| Contact Us{% endblock %}
 {% block content %}
-   <!-- Hero Banner -->
    <header class="page-header banner-top" data-background="{% static 'images/slide01.jpeg' %}" style="background: url('{% static 'images/slide04.jpg'%}') rgba(0, 0, 0, 0.3);">
     <div class="container inner-banner">
       <h1 class="inner-banner__title">Contact AGILE</h1>  
     </div>
-      <!-- end container --> 
-    </header>
+   </header>
     <div class="waves-grp">
       <svg class="waves-banner2 margin-top-50t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
@@ -24,69 +22,74 @@
       </svg>
     </div>
 
-  <!-- marketing -->
   <section class="content-section content-section__no-top-padding content-section-20">
-  
     <!-- Contact Details section -->
     {% for contact_detail in contact_details_section %} 
       {{ contact_detail.content | safe }}
     {% endfor %}
-
-  
-    <!-- end container --> 
   </section>
-    <section class="content-section no-bottom-spacing content-section-40" data-background="#f9f7ef" style="background: rgb(249, 247, 239);">
-      <div class="container">
-        <div class="row">
-             <div class="col-12">
-            <div class="section-title section-title-btm-20px text-left">
-                <h6>Have Any Question?</h6>
-                <h3>Please contact us using the form below.</h3>
-            </div>
-            <!-- end section-title --> 
+
+  <section class="content-section no-bottom-spacing content-section-40" data-background="#f9f7ef" style="background: rgb(249, 247, 239);">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-title section-title-btm-20px text-left">
+            <h6>Have Any Question?</h6>
+            <h3>Please contact us using the form below.</h3>
           </div>
-          <!-- end col-12 -->
-            
-          <div class="col-12">
-              <div class="contact-form">
-                <form action="{% url 'inquiry' %}" method="POST" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <div class="row inner">
-                      <div class="form-group col-lg-4">
-                          <input type="text" name="name" placeholder="Fullname" required>
-                      </div> 
-                      <!-- end form-group -->
-                      <div class="form-group col-lg-4 col-md-6">
-                          <input type="text" name="email" placeholder="Email Address" required>
-                      </div> 
-                      <!-- end form-group -->
-                      <div class="form-group col-lg-4 col-md-6">
-                          <input type="text" name="phone" placeholder="Contact No." required>
-                      </div> 
-                      <!-- end form-group -->
-                      <div class="form-group col-12">
-                        <textarea name="message" placeholder="Message"></textarea>
-                      </div> 
-                      <!-- end form-group -->
-                      <div class="form-group col-12">
-                        <input type="submit" value="SEND MESSAGE">
-                      </div> 
-                      <!-- end form-group -->
-                  </div>
-                </form>
-                  <!-- end row inner -->
-              </div>
-              <!-- end contact-form -->
-          </div>
-          <!-- end col-12 -->
         </div>
-        <!-- end row --> 
+        <div class="col-12">
+          <div class="contact-form">
+            <form id="contactForm" action="{% url 'inquiry' %}" method="post">
+              {% csrf_token %}
+              <div class="row inner">
+                <div class="form-group col-lg-4">
+                  <label for="id_phone">Name:</label>
+                  <input type="text" id="id_name" name="name" value="{{ form.name.value|default_if_none:'' }}" required>
+                  {% if form.name.errors %}
+                    <div class="error">{{ form.name.errors }}</div>
+                  {% endif %}
+                </div>
+                <div class="form-group col-lg-4 col-md-6">
+                  <label for="id_phone">Email:</label>
+                  <input type="email" id="id_email" name="email" value="{{ form.email.value|default_if_none:'' }}" required>
+                  {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors }}</div>
+                  {% endif %}
+                </div>
+                <div class="form-group col-lg-4 col-md-6">
+                  <label for="id_phone">Phone:</label>
+                  <input type="text" id="id_phone" name="phone" value="{{ form.phone.value|default_if_none:'' }}">
+                  {% if form.phone.errors %}
+                      <div class="error">{{ form.phone.errors }}</div>
+                  {% endif %}
+                </div>
+                <div class="form-group col-12">
+                  <textarea id="id_message" name="message" required>{{ form.message.value|default_if_none:'' }}</textarea>
+                  {% if form.message.errors %}
+                    <div class="error">{{ form.message.errors }}</div>
+                  {% endif %}
+                </div>
+                <div class="form-group col-12">
+                  <input type="submit" value="SEND MESSAGE" id="submitBtn">
+                </div>
+              </div>
+            </form>
+            <div id="loading" style="display: none;">
+              <img src="{% static 'images/loading.gif' %}" alt="Loading...">
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- end container --> 
-    </section>
+    </div>
+  </section>
 {% endblock %}
 {% block extra_js %}
 <script>
   // JS script here
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    document.getElementById('loading').style.display = "block"
+    document.getElementById('submitBtn').disabled = true;
+  });
 </script>
 {% endblock %}
